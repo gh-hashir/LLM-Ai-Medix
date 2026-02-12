@@ -17,7 +17,7 @@ JSON Schema:
   "medicines": [
     {
       "name": "Generic Name",
-      "formula": "Chemical Composition",
+      "formula": "Chemical Structure (e.g., C13H18O2) - NOT the drug name",
       "brands": ["Brand 1", "Brand 2"],
       "dosage": "General adult dosage (e.g., 500mg every 6 hours)",
       "usage": "Indication",

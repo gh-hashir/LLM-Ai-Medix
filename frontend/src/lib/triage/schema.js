@@ -23,7 +23,7 @@ export const TriageResultSchema = z.object({
 export const DiagnoseResultSchema = z.object({
     medicines: z.array(z.object({
         name: z.string(),
-        formula: z.string().default('N/A'),
+        formula: z.string().describe("Chemical structure (e.g., C13H18O2) NOT name").default('N/A'),
         brands: z.array(z.string()).default([]),
         dosage: z.string().default('Consult a doctor'),
         usage: z.string().default(''),
