@@ -1,0 +1,53 @@
+# AI Medix - Technical & Functional Overview (Ultra-Detailed)
+
+AI Medix is a high-performance, full-stack medical AI assistant platform. It leverages state-of-the-art Large Language Models (LLMs) and a unified Next.js architecture to provide reliable medical guidance and emergency resources.
+
+## 🏗️ Technical Architecture
+AI Medix has evolved into a **Unified Full-Stack Application** using Next.js 16. The legacy Express backend has been decommissioned, and all logic now resides within Next.js API Routes and Server Components.
+
+### 1. AI Orchestration Layer (`src/lib/ai/`)
+- **Controller Logic**: The `aiController.js` manages an intelligent failover system.
+- **Provider Rotation**: 
+    1. **Groq (LPU™ Inference)**: Primary provider using `llama-3.3-70b-versatile`. Chosen for sub-second latency and consistent medical accuracy.
+    2. **SambaNova Systems**: First fallback using `Meta-Llama-3.1-405B-Instruct` for heavy reasoning tasks.
+    3. **Google Gemini**: Second fallback using `gemini-1.5-flash` via the Google Generative AI SDK.
+    4. **Demo Engine**: Local fallback (`demoResponses.js`) to ensure the UI never hangs even if all upstream APIs are down.
+
+### 2. Core API Routes (`src/app/api/`)
+- **`/api/med/diagnose`**: Processes symptom strings, handles AI provider rotation, and returns structured medicine recommendations (Name, Formula, Dosage).
+- **`/api/chat`**: General-purpose medical inquiry handler with streaming support.
+- **`/api/auth/[...nextauth]`**: Implements Google OAuth 2.0 with session persistence.
+
+### 3. Data Management
+- **Persistence Layer**: Custom file-based database for local development and MongoDB integration for production deployments.
+- **Rate Limiting**: Tiered access control (Free: 20/day, Pro: 500/day, Unlimited: 1M/day) enforced via server-side middleware.
+
+## 🎨 UI/UX System (`src/components/`)
+- **Visuals**: Modern Glassmorphism aesthetic with dynamic gradients.
+- **Motion**: Integrated Lottie animations and Framer Motion for smooth state transitions.
+- **Components**:
+    - `Background.js`: Particle-based medical-themed backdrop.
+    - `DiagnosisResults.js`: Structured grid layout for medicine data with interactive feedback.
+    - `MapComponent.js`: Google Maps integration for real-time facility tracking in Pakistan.
+    - `CustomCursor.js`: Interactive UI element that enhances the "premium" feel.
+
+## 🚑 Functional Modules
+- **Symptom Analyzer**: Converts natural language symptom descriptions into pharmaceutical data.
+- **Emergency Directory**: A localized database of hospitals and pharmacies across major cities in Pakistan (Karachi, Lahore, Islamabad, etc.).
+- **User Dashboard**: Secure area for managing search history and subscription status.
+- **Medicine Directory**: Detailed information including chemical formulas and common brand names.
+
+## 🛠️ Tech Stack & Requirements
+- **Framework**: Next.js 16 + React 19
+- **Authentication**: NextAuth.js
+- **Styling**: Vanilla CSS Modules (no utility overkill)
+- **Deployment**: Node.js 18+ environment, optimized for Edge Runtime.
+
+## 🔒 Security & Performance
+- **API Key Management**: Securely stored in `.env.local`, never exposed to client-side code.
+- **Edge Compatibility**: Designed to run on Edge functions for global low-latency.
+- **Error Handling**: Comprehensive grace-period handling for AI timeouts and rate limits.
+
+---
+*Document Version: 1.1 - Detailed Audit*
+*Last Updated: February 2026*

@@ -16,6 +16,7 @@ export async function tryGroq(message) {
         throw new Error('Groq API key not configured')
     }
 
+    console.log(message, "mera message arha hai")
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {

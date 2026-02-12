@@ -1,0 +1,29 @@
+[
+    {
+        "id": "case_001",
+        "description": "Clear emergency: Chest pain + SOB",
+        "input": {
+            "symptoms": "I have severe chest pain and cannot breathe",
+            "age": "55"
+        },
+        "expectedUrgency": "EMERGENCY"
+    },
+    {
+        "id": "case_002",
+        "description": "Routine cold",
+        "input": {
+            "symptoms": "Runny nose and mild cough for 2 days",
+            "age": "25"
+        },
+        "expectedUrgency": "SELF_CARE"
+    },
+    {
+        "id": "case_003",
+        "description": "Urgent fever",
+        "input": {
+            "symptoms": "High fever of 104F for 3 days and confusion",
+            "age": "30"
+        },
+        "expectedUrgency": "URGENT"
+    }
+]

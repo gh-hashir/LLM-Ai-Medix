@@ -1,0 +1,14 @@
+{
+    "en": {
+        "quickSearch": "Quick Search",
+        "describeSymptoms": "Describe your symptoms or condition",
+        "placeholder": "e.g. I have a headache, fever, and sore throat...",
+        "analyzeButton": "🔍 Find Medicines"
+    },
+    "ur": {
+        "quickSearch": "فوری تلاش",
+        "describeSymptoms": "اپنی علامات بیان کریں",
+        "placeholder": "مثلاً مجھے سر درد اور بخار ہے...",
+        "analyzeButton": "🔍 ادویات تلاش کریں"
+    }
+}
