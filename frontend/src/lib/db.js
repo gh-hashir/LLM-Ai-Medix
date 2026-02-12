@@ -45,6 +45,11 @@ export const db = {
         return users.find(u => u.email === email);
     },
 
+    getUserByIdentifier: (identifier) => {
+        const users = readUsers();
+        return users.find(u => u.email === identifier || u.name === identifier);
+    },
+
     createUser: ({ email, password, name }) => {
         const users = readUsers();
         if (users.find(u => u.email === email)) {

@@ -14,8 +14,8 @@ export const authOptions = {
                     return null
                 }
 
-                // Check if user exists
-                let user = db.getUserByEmail(credentials.email)
+                // Check if user exists (by email or name)
+                let user = db.getUserByIdentifier(credentials.email)
 
                 if (user) {
                     // Validate password

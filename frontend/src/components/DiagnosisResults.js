@@ -389,7 +389,7 @@ export default function DiagnosisResults({ result }) {
                                         marginBottom: '1rem',
                                         display: 'block'
                                     }}>
-                                        <p style={{ color: '#a29bfe', fontSize: '0.65rem', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '0.5px', opacity: 0.8 }}>Formula / Ingredients</p>
+                                        <p style={{ color: '#a29bfe', fontSize: '0.65rem', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '0.5px', opacity: 0.8 }}>Chemical Formula</p>
                                         <span style={{ color: '#d1d1ff', fontSize: '0.82rem', fontWeight: '500' }}>
                                             {formatFormula(med.formula)}
                                         </span>
