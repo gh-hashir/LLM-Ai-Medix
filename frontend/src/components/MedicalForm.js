@@ -57,6 +57,7 @@ export default function MedicalForm({ onAnalyze, isLoading, language = 'en' }) {
         if (isListening) {
             recognitionRef.current?.stop()
         } else {
+            setSymptoms('') // Clear previous text/symptoms when starting fresh voice input
             setIsListening(true)
             recognitionRef.current?.start()
         }

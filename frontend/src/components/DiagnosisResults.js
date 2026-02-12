@@ -78,6 +78,17 @@ function SaveButton({ med }) {
     )
 }
 
+function formatFormula(formula) {
+    if (!formula) return 'N/A';
+    // Split by digits and wrap them in <sub> tags
+    return formula.split('').map((char, i) => {
+        if (/\d/.test(char)) {
+            return <sub key={i} style={{ fontSize: '0.7em', verticalAlign: 'sub' }}>{char}</sub>;
+        }
+        return char;
+    });
+}
+
 
 export default function DiagnosisResults({ result }) {
     if (!result) return null
@@ -380,7 +391,7 @@ export default function DiagnosisResults({ result }) {
                                     }}>
                                         <p style={{ color: '#a29bfe', fontSize: '0.65rem', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '0.5px', opacity: 0.8 }}>Formula / Ingredients</p>
                                         <span style={{ color: '#d1d1ff', fontSize: '0.82rem', fontWeight: '500' }}>
-                                            {med.formula}
+                                            {formatFormula(med.formula)}
                                         </span>
                                     </div>
 
