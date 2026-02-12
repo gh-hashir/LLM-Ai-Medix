@@ -9,6 +9,7 @@ import MedicalForm from '@/components/MedicalForm'
 import DiagnosisResults from '@/components/DiagnosisResults'
 import Loading from '@/components/Loading'
 import Footer from '@/components/Footer'
+import EmergencyPanel from '@/components/EmergencyPanel'
 
 export default function Home() {
   const { data: session } = useSession()
@@ -183,6 +184,7 @@ export default function Home() {
            }
         `}</style>
       </main>
+      <EmergencyPanel />
     </>
   )
 }
