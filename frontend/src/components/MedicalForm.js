@@ -45,6 +45,13 @@ export default function MedicalForm({ onAnalyze, isLoading, language = 'en' }) {
             recognitionRef.current.onerror = (event) => {
                 console.error('Speech recognition error', event.error)
                 setIsListening(false)
+                if (event.error === 'not-allowed') {
+                    alert('Microphone access denied. Please allow microphone permissions.')
+                } else if (event.error === 'no-speech') {
+                    // Ignore no-speech errors, just stop listening
+                } else {
+                    alert('Voice input error: ' + event.error)
+                }
             }
 
             recognitionRef.current.onend = () => {
